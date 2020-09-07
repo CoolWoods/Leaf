@@ -1,0 +1,27 @@
+server:
+  port: 6969
+
+spring:
+  application:
+    name: leaf_user #服务名
+    #数据库连接配置
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    username: root
+    password: 811236
+
+
+jwt:
+  config:
+    key: 811236
+    ttl: 3600000 #一个小时
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8989/eureka/
+  instance:
+    prefer-ip-address: true
+
+
