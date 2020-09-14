@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qingmu.user.dao.UserDao">
+    <!-- 根据条件查询 -->
+    <select id="findBySearchMap" parameterType="map" resultType="cn.qingmu.user.pojo.User">
+        select * from user
+        <!-- 注意and前后的空格，否则会出错！ -->
+        <where>
+            <if test="id!=null"> and id = #{id}</if>
+            <if test="mobile!=null"> and mobile = #{mobile}</if>
+            <if test="nickname!=null"> and nickname like concat('%', #{nickname}, '%')</if>
+        </where>
+    </select>
+</mapper>

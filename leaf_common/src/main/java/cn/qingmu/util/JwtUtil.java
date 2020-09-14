@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * @author zm
+ * @author Zongmin
  * @data 2020-9-2 21:34:6
  * Jwt工具类
  */

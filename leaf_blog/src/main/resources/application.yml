@@ -1,0 +1,12 @@
+server:
+  port: 5969
+spring:
+  application:
+    name: leaf_blog
+eureka:
+  client:
+    service-url:
+      #注册中心地址
+      defaultZone: http://127.0.0.1:8989/eureka/
+  instance:
+    prefer-ip-address: true

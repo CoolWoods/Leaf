@@ -1,7 +1,7 @@
-package entity;
+package cn.qingmu.entity;
 
 /**
- * @author zm
+ * @author Zongmin
  * @date 2020-9-2 21:26:35
  * 自定义状态响应码
  */

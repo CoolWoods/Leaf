@@ -3,15 +3,36 @@ server:
 spring:
   application:
     name: leaf_manager
-
 eureka:
   client:
     service-url:
+      #注册中心地址
       defaultZone: http://127.0.0.1:8989/eureka/
   instance:
     prefer-ip-address: true
+
 zuul:
   routes:
     leaf_user:
-      path: /user/**
+      #访问路径
+      path: /api_user/**
       serviceId: leaf_user
+    leaf_blog:
+      path: /api_blog/**
+      serviceId: leaf_blog
+  host:
+    connect-timeout-millis: 15000
+    socket-timeout-millis: 10000
+    connection-request-timeout-millis: 5000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          enabled:
+            timeoutInMilliseconds: 60000

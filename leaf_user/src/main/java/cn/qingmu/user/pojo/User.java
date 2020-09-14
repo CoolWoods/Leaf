@@ -7,7 +7,7 @@ import java.util.Date;
 
 /**
  * user实体类
- * @author zm
+ * @author Zongmin
  * @date 2020-9-3 10:28:11
  */
 public class User implements Serializable{
@@ -158,5 +158,27 @@ public class User implements Serializable{
 
 	public void setFollowcount(Integer followcount) {
 		this.followcount = followcount;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id='" + id + '\'' +
+				", mobile='" + mobile + '\'' +
+				", password='" + password + '\'' +
+				", nickname='" + nickname + '\'' +
+				", sex='" + sex + '\'' +
+				", birthday=" + birthday +
+				", avatar='" + avatar + '\'' +
+				", email='" + email + '\'' +
+				", regdate=" + regdate +
+				", updatedate=" + updatedate +
+				", lastdate=" + lastdate +
+				", online=" + online +
+				", interest='" + interest + '\'' +
+				", personality='" + personality + '\'' +
+				", fanscount=" + fanscount +
+				", followcount=" + followcount +
+				'}';
 	}
 }

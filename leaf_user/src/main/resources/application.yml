@@ -1,27 +1,47 @@
 server:
   port: 6969
-
 spring:
   application:
     name: leaf_user #服务名
-    #数据库连接配置
+    #数据库连接配置,serverTimezone=GMT%2B8设置时区为东8区
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    url: jdbc:mysql://49.234.98.83:3306/qingmur_user?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: root
+    password: 0Ex#F9#N46I2Ak6M
+    hikari:
+      connection-timeout: 2000
+  redis:
+    host: 49.234.98.83
+    port: 6379
+    timeout: 50000
     password: 811236
 
+  rabbitmq:
+    host: 49.234.98.83
+    port: 5672
+    username: mq
+    password: 811236
+    connection-timeout: 50000
 
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+    async:
+      request-timeout: 10000
 jwt:
   config:
     key: 811236
     ttl: 3600000 #一个小时
-
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8989/eureka/
   instance:
     prefer-ip-address: true
-
-
+#分页pageHelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true

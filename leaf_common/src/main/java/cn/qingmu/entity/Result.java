@@ -1,7 +1,7 @@
 package cn.qingmu.entity;
 
 /**
- * @author zm
+ * @author Zongmin
  * @date 2020-9-2 21:29:29
  * 返回的结果
  */

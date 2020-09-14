@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 
 /**
- * @author zm
+ * @author Zongmin
  * @date 2020-9-7 11:50:7
  * 网关启动类
  */
