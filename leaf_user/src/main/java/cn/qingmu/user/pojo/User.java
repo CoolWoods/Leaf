@@ -1,7 +1,5 @@
 package cn.qingmu.user.pojo;
 
-import org.springframework.data.annotation.Id;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,7 +10,6 @@ import java.util.Date;
  */
 public class User implements Serializable{
 
-	@Id
 	private String id;//ID
 
 

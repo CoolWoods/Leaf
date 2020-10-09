@@ -1,6 +1,5 @@
 package cn.qingmu.user.pojo;
 
-import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 
@@ -12,7 +11,6 @@ import java.io.Serializable;
  */
 public class Admin implements Serializable{
 
-	@Id
 	private String id;//ID
 	
 	private String loginName;//登陆名称

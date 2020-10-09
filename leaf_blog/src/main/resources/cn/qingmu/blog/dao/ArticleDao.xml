@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qingmu.blog.dao.ArticleDao">
+    <!-- 根据条件查询 -->
+    <select id="findByTitle" parameterType="map" resultType="cn.qingmu.blog.pojo.Article">
+        select * from article
+        <!-- 注意and前后的空格，否则会出错！ -->
+        <where>
+            <if test="title!=null"> and title like concat('%', #{title}, '%')</if>
+        </where>
+    </select>
+
+    <!-- 根据Map条件查询 -->
+    <select id="findBySearchMap" parameterType="map" resultType="cn.qingmu.blog.pojo.Article">
+        select * from article
+        <!-- 注意and前后的空格，否则会出错！ -->
+        <where>
+            <if test="id!=null"> and id = #{id}</if>
+            <if test="userId!=null"> and userId = #{userId}</if>
+            <if test="columnId!=null"> and columnId = #{columnId}</if>
+            <if test="isPublic!=null"> and isPublic = #{isPublic}</if>
+            <if test="state!=null"> and state = #{state}</if>
+            <if test="channelId!=null"> and channelId = #{channelId}</if>
+            <if test="title!=null"> and title like concat('%', #{title}, '%')</if>
+        </where>
+    </select>
+
+    <insert id="saveList" parameterType="List">
+        INSERT INTO article(`id`, `columnId`, `userId`, `channelId`, `title`, `content`, `image`, `createTime`,  `updateTime`, `isPublic`, `isTop`, `visits`,  `thumbUp`, `thumbDown`, `comment`, `state`,  `url`, `type`)
+        VALUES
+        <foreach collection ="list" item="article" index= "index" separator =",">
+            ( #{article.id}, #{article.columnId}, #{article.userId}, #{article.channelId},
+            #{article.title}, #{article.content}, #{article.image}, #{article.createTime},
+            #{article.updateTime}, #{article.isPublic}, #{article.isTop}, #{article.visits},
+            #{article.thumbUp}, #{article.thumbDown}, #{article.comment}, #{article.state},
+            #{article.url}, #{article.type} )
+        </foreach>
+    </insert>
+
+    <insert id="deleteByIds" parameterType="String">
+        DELETE FROM article WHERE id IN
+        <foreach collection ="array" item="id"  index= "index" open="(" separator ="," close=")">
+            #{id}
+        </foreach>
+    </insert>
+</mapper>
